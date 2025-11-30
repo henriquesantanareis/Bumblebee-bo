@@ -103,3 +103,20 @@ Consiste em um sistema embarcado com:
                  LEDs vidas
        PC0, PC1, PC2 → LEDs (3 vidas)
 
+📁 ProjetoBumbleBee/
+│
+├── src/
+│   ├── main.c              → Código completo do ATmega328P
+│   └── esp32_control.ino   → Código do ESP32 com Dabble
+│
+├── docs/
+│   ├── Doxyfile            → Configuração do Doxygen
+│   ├── html/               → Site gerado pelo Doxygen
+│   └── diagrams/           → Diagramas e esquemas
+│
+├── kicad/
+│   ├── POM.kicad_pro
+│   ├── POE.kicad_pro
+│   └── POP.kicad_pro
+│
+└── README.md   ← (este arquivo)
