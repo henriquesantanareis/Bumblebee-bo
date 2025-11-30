@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Bumblebee bo: Referência do Arquivo main/main.c</title>
+<link rel="icon" href="logo.jpg" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Bumblebee bo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.15.0 -->
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<div id="main-nav">
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Globais</span></a></li>
+    </ul>
+  </div>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#enum-members">Enumerações</a> &#124;
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo main.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>LDR -&gt; hits que tiram vidas, STUN com Timer, laser em PC3, reset via UART 'R'.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;avr/interrupt.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+<tr id="define-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Configurações / thresholds</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>Thresholds do LDR e tempo de stun </p>
+</div></td></tr>
+<tr class="memitem:ae36cc0832fc8f3b4f7d68c742cac2041" id="r_ae36cc0832fc8f3b4f7d68c742cac2041"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae36cc0832fc8f3b4f7d68c742cac2041">LDR_ADC_CH</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memitem:a52d1225092b1f6d624fb219ecb7d1b0f" id="r_a52d1225092b1f6d624fb219ecb7d1b0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52d1225092b1f6d624fb219ecb7d1b0f">LDR_THRESHOLD</a>&#160;&#160;&#160;300</td></tr>
+<tr class="memitem:a51983db0e4bd795fe76af56d36f1e8c3" id="r_a51983db0e4bd795fe76af56d36f1e8c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51983db0e4bd795fe76af56d36f1e8c3">LDR_HYST</a>&#160;&#160;&#160;40</td></tr>
+<tr class="memitem:a52469d09a2f2cb2ece9dc81fd082a7bd" id="r_a52469d09a2f2cb2ece9dc81fd082a7bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52469d09a2f2cb2ece9dc81fd082a7bd">STUN_TIME_MS</a>&#160;&#160;&#160;3000</td></tr>
+<tr id="define-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">UART</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>Configuração heurística do UART (Serial0) para comunicação com o ESP32 </p>
+</div></td></tr>
+<tr class="memitem:a62634036639f88eece6fbf226b45f84b" id="r_a62634036639f88eece6fbf226b45f84b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memitem:a711e9130c825a7269c8c87dbb57a85e0" id="r_a711e9130c825a7269c8c87dbb57a85e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a711e9130c825a7269c8c87dbb57a85e0">MYUBRR</a>&#160;&#160;&#160;((<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a> / (16UL * <a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a>)) - 1)</td></tr>
+<tr id="define-members-2" class="groupHeader"><td colspan="2"><div class="groupHeader">Masks / Pinos</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>Máscaras para manipular os registradores DDRx / PORTx diretamente </p>
+</div></td></tr>
+<tr class="memitem:a6066c59183747b39867a12f4881e67c7" id="r_a6066c59183747b39867a12f4881e67c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6066c59183747b39867a12f4881e67c7">MASK_ENA</a>&#160;&#160;&#160;(1 &lt;&lt; PB1)</td></tr>
+<tr class="memitem:a85a6f57cf25ac09f586a48439c75db3f" id="r_a85a6f57cf25ac09f586a48439c75db3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85a6f57cf25ac09f586a48439c75db3f">MASK_ENB</a>&#160;&#160;&#160;(1 &lt;&lt; PB2)</td></tr>
+<tr class="memitem:a2e4d25394232952ae67b3a106f0fb076" id="r_a2e4d25394232952ae67b3a106f0fb076"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e4d25394232952ae67b3a106f0fb076">MASK_IN1</a>&#160;&#160;&#160;(1 &lt;&lt; PB0)</td></tr>
+<tr class="memitem:a1918a2b33c080980df2d264f81de7cf1" id="r_a1918a2b33c080980df2d264f81de7cf1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1918a2b33c080980df2d264f81de7cf1">MASK_IN2</a>&#160;&#160;&#160;(1 &lt;&lt; PD7)</td></tr>
+<tr class="memitem:afda4a90784ad3fbcea18e9595a724fb4" id="r_afda4a90784ad3fbcea18e9595a724fb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afda4a90784ad3fbcea18e9595a724fb4">MASK_IN3</a>&#160;&#160;&#160;(1 &lt;&lt; PD6)</td></tr>
+<tr class="memitem:a9eb1a0dc3f6963078cca06bb43d78e2c" id="r_a9eb1a0dc3f6963078cca06bb43d78e2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb1a0dc3f6963078cca06bb43d78e2c">MASK_IN4</a>&#160;&#160;&#160;(1 &lt;&lt; PD5)</td></tr>
+<tr class="memitem:a9535c09fe99844cbda5120546591edcc" id="r_a9535c09fe99844cbda5120546591edcc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9535c09fe99844cbda5120546591edcc">MASK_INT0</a>&#160;&#160;&#160;(1 &lt;&lt; PD2)</td></tr>
+<tr class="memitem:ac2924b5f1e694e38bc970684d2feec63" id="r_ac2924b5f1e694e38bc970684d2feec63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2924b5f1e694e38bc970684d2feec63">MASK_LED1</a>&#160;&#160;&#160;(1 &lt;&lt; PC0)</td></tr>
+<tr class="memitem:a799d237650c3d9964a1bc08b3132e893" id="r_a799d237650c3d9964a1bc08b3132e893"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a799d237650c3d9964a1bc08b3132e893">MASK_LED2</a>&#160;&#160;&#160;(1 &lt;&lt; PC1)</td></tr>
+<tr class="memitem:afae7fcebc45c4be440e956b7c2dbf99d" id="r_afae7fcebc45c4be440e956b7c2dbf99d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afae7fcebc45c4be440e956b7c2dbf99d">MASK_LED3</a>&#160;&#160;&#160;(1 &lt;&lt; PC2)</td></tr>
+<tr class="memitem:a25d070516f3139317736b176515be13a" id="r_a25d070516f3139317736b176515be13a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25d070516f3139317736b176515be13a">MASK_LASER</a>&#160;&#160;&#160;(1 &lt;&lt; PC3)</td></tr>
+<tr id="define-members-3" class="groupHeader"><td colspan="2"><div class="groupHeader">Macros auxiliares</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>Macros para facilitar operações sobre registradores </p>
+</div></td></tr>
+<tr class="memitem:a78f4d15d6f82ee943fd943d97f9a31e1" id="r_a78f4d15d6f82ee943fd943d97f9a31e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78f4d15d6f82ee943fd943d97f9a31e1">SET_BITS</a>(reg,  mask)</td></tr>
+<tr class="memitem:a87664ff7edf5e1982800c83a96b1af3a" id="r_a87664ff7edf5e1982800c83a96b1af3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87664ff7edf5e1982800c83a96b1af3a">CLEAR_BITS</a>(reg,  mask)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:a4edce1ca040716922b6e4a79be4e414d" id="r_a4edce1ca040716922b6e4a79be4e414d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4edce1ca040716922b6e4a79be4e414d">game_state_t</a> { <a class="el" href="#a4edce1ca040716922b6e4a79be4e414dae583c55c9f9a3aa9888e4ed771d6a9b6">STATE_NORMAL</a> = 0
+, <a class="el" href="#a4edce1ca040716922b6e4a79be4e414dae0b894d5d05d100754a50792d77fcd62">STATE_STUN</a>
+, <a class="el" href="#a4edce1ca040716922b6e4a79be4e414da6a712d81c2bc028af1fd20d81794d42c">STATE_DEAD</a>
+ }</td></tr>
+<tr class="memdesc:a4edce1ca040716922b6e4a79be4e414d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estados possíveis do jogo/sistema.  <a href="#a4edce1ca040716922b6e4a79be4e414d">Mais...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab567886523c8a226f508cfeb9073c400" id="r_ab567886523c8a226f508cfeb9073c400"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab567886523c8a226f508cfeb9073c400">usart_init</a> (unsigned int ubrr)</td></tr>
+<tr class="memdesc:ab567886523c8a226f508cfeb9073c400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa USART0 com UBRR fornecido.  <br /></td></tr>
+<tr class="memitem:ad18cf2b77c19f48feadca5a3f42ff628" id="r_ad18cf2b77c19f48feadca5a3f42ff628"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad18cf2b77c19f48feadca5a3f42ff628">usart_available</a> (void)</td></tr>
+<tr class="memdesc:ad18cf2b77c19f48feadca5a3f42ff628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se há dado disponível na UART (não bloqueante).  <br /></td></tr>
+<tr class="memitem:aa4c8382e6dbce280795bae957eb6afef" id="r_aa4c8382e6dbce280795bae957eb6afef"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4c8382e6dbce280795bae957eb6afef">usart_receive_nonblocking</a> (void)</td></tr>
+<tr class="memdesc:aa4c8382e6dbce280795bae957eb6afef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recebe 1 byte da UART de forma não-bloqueante.  <br /></td></tr>
+<tr class="memitem:a4f88eeb1021cb3b2a1b5e53ebbf51997" id="r_a4f88eeb1021cb3b2a1b5e53ebbf51997"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f88eeb1021cb3b2a1b5e53ebbf51997">usart_transmit</a> (char c)</td></tr>
+<tr class="memdesc:a4f88eeb1021cb3b2a1b5e53ebbf51997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia 1 caractere pela UART (bloqueante até buffer livre).  <br /></td></tr>
+<tr class="memitem:a985f020bc17a53212264b510bcf4d2c3" id="r_a985f020bc17a53212264b510bcf4d2c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a985f020bc17a53212264b510bcf4d2c3">usart_print_uint</a> (uint16_t v)</td></tr>
+<tr class="memdesc:a985f020bc17a53212264b510bcf4d2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime um inteiro sem sinal (até 5 dígitos) seguido de CRLF.  <br /></td></tr>
+<tr class="memitem:afdbe206b3c49f019757ab09b3cf52b9c" id="r_afdbe206b3c49f019757ab09b3cf52b9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdbe206b3c49f019757ab09b3cf52b9c">gpio_init</a> (void)</td></tr>
+<tr class="memdesc:afdbe206b3c49f019757ab09b3cf52b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura GPIOs iniciais: motores, LEDs, laser, pull-up botão.  <br /></td></tr>
+<tr class="memitem:a1e8fdae3fd7118582ffa427dad05b6e1" id="r_a1e8fdae3fd7118582ffa427dad05b6e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e8fdae3fd7118582ffa427dad05b6e1">pwm_init</a> (void)</td></tr>
+<tr class="memdesc:a1e8fdae3fd7118582ffa427dad05b6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa Timer1 para PWM (Fast PWM 8-bit) e zera OCR1A/B.  <br /></td></tr>
+<tr class="memitem:a129103c8b09172a557da4273fff658db" id="r_a129103c8b09172a557da4273fff658db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a129103c8b09172a557da4273fff658db">set_motorA_dir</a> (uint8_t dir)</td></tr>
+<tr class="memdesc:a129103c8b09172a557da4273fff658db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define direção do motor A (1 = forward, 2 = reverse, 0 = stop).  <br /></td></tr>
+<tr class="memitem:ab2aa33eb4be98ec2712c1b4087e2d582" id="r_ab2aa33eb4be98ec2712c1b4087e2d582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2aa33eb4be98ec2712c1b4087e2d582">set_motorB_dir</a> (uint8_t dir)</td></tr>
+<tr class="memdesc:ab2aa33eb4be98ec2712c1b4087e2d582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define direção do motor B (1 = forward, 2 = reverse, 0 = stop).  <br /></td></tr>
+<tr class="memitem:a235c7b31461fbf659e268b5b0a059a05" id="r_a235c7b31461fbf659e268b5b0a059a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a235c7b31461fbf659e268b5b0a059a05">set_motorA_speed</a> (uint8_t duty)</td></tr>
+<tr class="memdesc:a235c7b31461fbf659e268b5b0a059a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define duty cycle para motor A (0..255).  <br /></td></tr>
+<tr class="memitem:af0b1c8755d2d4c6f54d9e4f49b524d09" id="r_af0b1c8755d2d4c6f54d9e4f49b524d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0b1c8755d2d4c6f54d9e4f49b524d09">set_motorB_speed</a> (uint8_t duty)</td></tr>
+<tr class="memdesc:af0b1c8755d2d4c6f54d9e4f49b524d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define duty cycle para motor B (0..255).  <br /></td></tr>
+<tr class="memitem:a9d4cc27772c2dbe45187e0e7ab284784" id="r_a9d4cc27772c2dbe45187e0e7ab284784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d4cc27772c2dbe45187e0e7ab284784">motor_control</a> (char cmd)</td></tr>
+<tr class="memdesc:a9d4cc27772c2dbe45187e0e7ab284784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpreta comando recebido via UART e controla motores/laser.  <br /></td></tr>
+<tr class="memitem:a92b50129527e9885167ea116439ac32f" id="r_a92b50129527e9885167ea116439ac32f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92b50129527e9885167ea116439ac32f">laser_on</a> (void)</td></tr>
+<tr class="memdesc:a92b50129527e9885167ea116439ac32f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liga o laser (ativa saída PC3).  <br /></td></tr>
+<tr class="memitem:a7268e35106e28591830c4c3d481abe44" id="r_a7268e35106e28591830c4c3d481abe44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7268e35106e28591830c4c3d481abe44">laser_off</a> (void)</td></tr>
+<tr class="memdesc:a7268e35106e28591830c4c3d481abe44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desliga o laser (desativa saída PC3).  <br /></td></tr>
+<tr class="memitem:ae338d7ef8165e65a0fc62d850b9a5300" id="r_ae338d7ef8165e65a0fc62d850b9a5300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae338d7ef8165e65a0fc62d850b9a5300">update_leds_from_lives</a> (uint8_t l)</td></tr>
+<tr class="memdesc:ae338d7ef8165e65a0fc62d850b9a5300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza LEDs de vidas com base no valor lido.  <br /></td></tr>
+<tr class="memitem:a679f868dd5dc4a41b1fdd8e61a6e8643" id="r_a679f868dd5dc4a41b1fdd8e61a6e8643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679f868dd5dc4a41b1fdd8e61a6e8643">reset_lives</a> (void)</td></tr>
+<tr class="memdesc:a679f868dd5dc4a41b1fdd8e61a6e8643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseta vidas para 3, apaga motores/laser e re-acende LEDs.  <br /></td></tr>
+<tr class="memitem:a71df09980fb56130066c3a86eeaef29d" id="r_a71df09980fb56130066c3a86eeaef29d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71df09980fb56130066c3a86eeaef29d">adc_init_freerun</a> (uint8_t ch)</td></tr>
+<tr class="memdesc:a71df09980fb56130066c3a86eeaef29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa ADC em modo free-running para o canal ch.  <br /></td></tr>
+<tr class="memitem:afea150fcd685610cb9f7672fce361e53" id="r_afea150fcd685610cb9f7672fce361e53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afea150fcd685610cb9f7672fce361e53">ISR</a> (INT0_vect)</td></tr>
+<tr class="memdesc:afea150fcd685610cb9f7672fce361e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">INT0 interrupt service routine — botão físico de reset com debounce.  <br /></td></tr>
+<tr class="memitem:a05c2e5b588ced1cd7312f5b0edc5b295" id="r_a05c2e5b588ced1cd7312f5b0edc5b295"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05c2e5b588ced1cd7312f5b0edc5b295">ISR</a> (ADC_vect)</td></tr>
+<tr class="memdesc:a05c2e5b588ced1cd7312f5b0edc5b295"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC conversion complete ISR (free-running).  <br /></td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função principal - inicializa periféricos e executa loop principal.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a5d6cd249665bf681fb1e7bc624f13ea5" id="r_a5d6cd249665bf681fb1e7bc624f13ea5"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d6cd249665bf681fb1e7bc624f13ea5">lives</a> = 3</td></tr>
+<tr class="memitem:af766dc321c1bd2f31037d384abca2288" id="r_af766dc321c1bd2f31037d384abca2288"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af766dc321c1bd2f31037d384abca2288">adc_value</a> = 0</td></tr>
+<tr class="memitem:aba05b1dc79faad6e88f29013b226976b" id="r_aba05b1dc79faad6e88f29013b226976b"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba05b1dc79faad6e88f29013b226976b">ldr_dark</a> = 0</td></tr>
+<tr class="memitem:a796e6e0f35bb50bda15b9d756fa0ac57" id="r_a796e6e0f35bb50bda15b9d756fa0ac57"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="#a4edce1ca040716922b6e4a79be4e414d">game_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a796e6e0f35bb50bda15b9d756fa0ac57">game_state</a> = <a class="el" href="#a4edce1ca040716922b6e4a79be4e414dae583c55c9f9a3aa9888e4ed771d6a9b6">STATE_NORMAL</a></td></tr>
+<tr class="memitem:a664caad48154de21ade1e675530cf681" id="r_a664caad48154de21ade1e675530cf681"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a664caad48154de21ade1e675530cf681">tick_ms</a> = 0</td></tr>
+<tr class="memitem:ac86f959cbda950252c8e59d7fac65f1f" id="r_ac86f959cbda950252c8e59d7fac65f1f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac86f959cbda950252c8e59d7fac65f1f">stun_end_time</a> = 0</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>LDR -&gt; hits que tiram vidas, STUN com Timer, laser em PC3, reset via UART 'R'. </p>
+<p>Projeto: sistema embarcado para ATmega328P (Arduino Uno)</p><ul>
+<li>Leitura ADC em modo free-running (ADC5 / PC5)</li>
+<li>Cada "hit" detectado no LDR reduz 1 vida e aplica STUN (fica parado, ignora comandos)</li>
+<li>Laser controlado em PC3 via transistor</li>
+<li>PWM para motores com Timer1 (OC1A/OC1B)</li>
+<li>Comunicação UART não-blocking (Serial0) — aceita comandos de um ESP32</li>
+</ul>
+<p>Autores: Henrique, Fernando &amp; Daniel</p>
+<p>Observações:</p><ul>
+<li>Ajuste LDR_THRESHOLD e LDR_HYST conforme ensaio prático.</li>
+<li>Reset de vidas pode ser via INT0 (botão) ou via UART (comando 'R'). </li>
+</ul>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Definições e macros</h2>
+<a id="a62634036639f88eece6fbf226b45f84b" name="a62634036639f88eece6fbf226b45f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62634036639f88eece6fbf226b45f84b">&#9670;&#160;</a></span>BAUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUD&#160;&#160;&#160;9600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87664ff7edf5e1982800c83a96b1af3a" name="a87664ff7edf5e1982800c83a96b1af3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87664ff7edf5e1982800c83a96b1af3a">&#9670;&#160;</a></span>CLEAR_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLEAR_BITS</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mask</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line">((reg) &amp;= ~(mask))</div>
+</div><!-- fragment --><p>limpa bits em reg </p>
+
+</div>
+</div>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae36cc0832fc8f3b4f7d68c742cac2041" name="ae36cc0832fc8f3b4f7d68c742cac2041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36cc0832fc8f3b4f7d68c742cac2041">&#9670;&#160;</a></span>LDR_ADC_CH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR_ADC_CH&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ADC5 -&gt; A5 / PC5 </p>
+
+</div>
+</div>
+<a id="a51983db0e4bd795fe76af56d36f1e8c3" name="a51983db0e4bd795fe76af56d36f1e8c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51983db0e4bd795fe76af56d36f1e8c3">&#9670;&#160;</a></span>LDR_HYST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR_HYST&#160;&#160;&#160;40</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>histerese do LDR para evitar bouncing/ruído </p>
+
+</div>
+</div>
+<a id="a52d1225092b1f6d624fb219ecb7d1b0f" name="a52d1225092b1f6d624fb219ecb7d1b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d1225092b1f6d624fb219ecb7d1b0f">&#9670;&#160;</a></span>LDR_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR_THRESHOLD&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>limite de “dano” (ajuste experimental) </p>
+
+</div>
+</div>
+<a id="a6066c59183747b39867a12f4881e67c7" name="a6066c59183747b39867a12f4881e67c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6066c59183747b39867a12f4881e67c7">&#9670;&#160;</a></span>MASK_ENA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_ENA&#160;&#160;&#160;(1 &lt;&lt; PB1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D9 - OC1A - ENA (PWM) </p>
+
+</div>
+</div>
+<a id="a85a6f57cf25ac09f586a48439c75db3f" name="a85a6f57cf25ac09f586a48439c75db3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a6f57cf25ac09f586a48439c75db3f">&#9670;&#160;</a></span>MASK_ENB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_ENB&#160;&#160;&#160;(1 &lt;&lt; PB2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D10 - OC1B - ENB (PWM) </p>
+
+</div>
+</div>
+<a id="a2e4d25394232952ae67b3a106f0fb076" name="a2e4d25394232952ae67b3a106f0fb076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4d25394232952ae67b3a106f0fb076">&#9670;&#160;</a></span>MASK_IN1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_IN1&#160;&#160;&#160;(1 &lt;&lt; PB0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D8 - IN1 </p>
+
+</div>
+</div>
+<a id="a1918a2b33c080980df2d264f81de7cf1" name="a1918a2b33c080980df2d264f81de7cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1918a2b33c080980df2d264f81de7cf1">&#9670;&#160;</a></span>MASK_IN2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_IN2&#160;&#160;&#160;(1 &lt;&lt; PD7)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D7 - IN2 </p>
+
+</div>
+</div>
+<a id="afda4a90784ad3fbcea18e9595a724fb4" name="afda4a90784ad3fbcea18e9595a724fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda4a90784ad3fbcea18e9595a724fb4">&#9670;&#160;</a></span>MASK_IN3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_IN3&#160;&#160;&#160;(1 &lt;&lt; PD6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D6 - IN3 </p>
+
+</div>
+</div>
+<a id="a9eb1a0dc3f6963078cca06bb43d78e2c" name="a9eb1a0dc3f6963078cca06bb43d78e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb1a0dc3f6963078cca06bb43d78e2c">&#9670;&#160;</a></span>MASK_IN4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_IN4&#160;&#160;&#160;(1 &lt;&lt; PD5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D5 - IN4 </p>
+
+</div>
+</div>
+<a id="a9535c09fe99844cbda5120546591edcc" name="a9535c09fe99844cbda5120546591edcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9535c09fe99844cbda5120546591edcc">&#9670;&#160;</a></span>MASK_INT0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_INT0&#160;&#160;&#160;(1 &lt;&lt; PD2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>PD2 = INT0 (botão reset) </p>
+
+</div>
+</div>
+<a id="a25d070516f3139317736b176515be13a" name="a25d070516f3139317736b176515be13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d070516f3139317736b176515be13a">&#9670;&#160;</a></span>MASK_LASER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_LASER&#160;&#160;&#160;(1 &lt;&lt; PC3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Laser (saída para base do transistor) </p>
+
+</div>
+</div>
+<a id="ac2924b5f1e694e38bc970684d2feec63" name="ac2924b5f1e694e38bc970684d2feec63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2924b5f1e694e38bc970684d2feec63">&#9670;&#160;</a></span>MASK_LED1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_LED1&#160;&#160;&#160;(1 &lt;&lt; PC0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LED1 (vida 1) </p>
+
+</div>
+</div>
+<a id="a799d237650c3d9964a1bc08b3132e893" name="a799d237650c3d9964a1bc08b3132e893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799d237650c3d9964a1bc08b3132e893">&#9670;&#160;</a></span>MASK_LED2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_LED2&#160;&#160;&#160;(1 &lt;&lt; PC1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LED2 (vida 2) </p>
+
+</div>
+</div>
+<a id="afae7fcebc45c4be440e956b7c2dbf99d" name="afae7fcebc45c4be440e956b7c2dbf99d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae7fcebc45c4be440e956b7c2dbf99d">&#9670;&#160;</a></span>MASK_LED3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_LED3&#160;&#160;&#160;(1 &lt;&lt; PC2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LED3 (vida 3) </p>
+
+</div>
+</div>
+<a id="a711e9130c825a7269c8c87dbb57a85e0" name="a711e9130c825a7269c8c87dbb57a85e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711e9130c825a7269c8c87dbb57a85e0">&#9670;&#160;</a></span>MYUBRR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MYUBRR&#160;&#160;&#160;((<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a> / (16UL * <a class="el" href="#a62634036639f88eece6fbf226b45f84b">BAUD</a>)) - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78f4d15d6f82ee943fd943d97f9a31e1" name="a78f4d15d6f82ee943fd943d97f9a31e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78f4d15d6f82ee943fd943d97f9a31e1">&#9670;&#160;</a></span>SET_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET_BITS</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mask</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line">((reg) |= (mask))</div>
+</div><!-- fragment --><p>seta bits em reg </p>
+
+</div>
+</div>
+<a id="a52469d09a2f2cb2ece9dc81fd082a7bd" name="a52469d09a2f2cb2ece9dc81fd082a7bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52469d09a2f2cb2ece9dc81fd082a7bd">&#9670;&#160;</a></span>STUN_TIME_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STUN_TIME_MS&#160;&#160;&#160;3000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>tempo de espera após dano (ms) </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumerações</h2>
+<a id="a4edce1ca040716922b6e4a79be4e414d" name="a4edce1ca040716922b6e4a79be4e414d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4edce1ca040716922b6e4a79be4e414d">&#9670;&#160;</a></span>game_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a4edce1ca040716922b6e4a79be4e414d">game_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estados possíveis do jogo/sistema. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="a4edce1ca040716922b6e4a79be4e414dae583c55c9f9a3aa9888e4ed771d6a9b6" name="a4edce1ca040716922b6e4a79be4e414dae583c55c9f9a3aa9888e4ed771d6a9b6"></a>STATE_NORMAL&#160;</td><td class="fielddoc"><p>pode andar/atirar </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4edce1ca040716922b6e4a79be4e414dae0b894d5d05d100754a50792d77fcd62" name="a4edce1ca040716922b6e4a79be4e414dae0b894d5d05d100754a50792d77fcd62"></a>STATE_STUN&#160;</td><td class="fielddoc"><p>tomou dano: parado, ignora comandos </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4edce1ca040716922b6e4a79be4e414da6a712d81c2bc028af1fd20d81794d42c" name="a4edce1ca040716922b6e4a79be4e414da6a712d81c2bc028af1fd20d81794d42c"></a>STATE_DEAD&#160;</td><td class="fielddoc"><p>0 vidas: parado até reset (INT0 ou comando UART) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Funções</h2>
+<a id="a71df09980fb56130066c3a86eeaef29d" name="a71df09980fb56130066c3a86eeaef29d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71df09980fb56130066c3a86eeaef29d">&#9670;&#160;</a></span>adc_init_freerun()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adc_init_freerun </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>ch</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa ADC em modo free-running para o canal ch. </p>
+<p>Inicializa ADC em free-running para o canal ch.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ch</td><td>canal ADC (0..7 para ATmega328P).</td></tr>
+    <tr><td class="paramname">ch</td><td>número do canal ADC (0..7). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afdbe206b3c49f019757ab09b3cf52b9c" name="afdbe206b3c49f019757ab09b3cf52b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbe206b3c49f019757ab09b3cf52b9c">&#9670;&#160;</a></span>gpio_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpio_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura GPIOs iniciais: motores, LEDs, laser, pull-up botão. </p>
+<p>Inicializa GPIOs: pinos de motor, LEDs e laser. </p>
+
+</div>
+</div>
+<a id="a05c2e5b588ced1cd7312f5b0edc5b295" name="a05c2e5b588ced1cd7312f5b0edc5b295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c2e5b588ced1cd7312f5b0edc5b295">&#9670;&#160;</a></span>ISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">ADC_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ADC conversion complete ISR (free-running). </p>
+<p>Grava a leitura 10-bit do ADC na variável global adc_value. A lógica de detecção de hit (borda claro-&gt;escuro) é feita no loop principal para evitar processamento pesado dentro de ISR. </p>
+
+</div>
+</div>
+<a id="afea150fcd685610cb9f7672fce361e53" name="afea150fcd685610cb9f7672fce361e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea150fcd685610cb9f7672fce361e53">&#9670;&#160;</a></span>ISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">INT0_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>INT0 interrupt service routine — botão físico de reset com debounce. </p>
+<p>O ISR faz um debounce simples via busy-wait curto: confirma que PD2 permaneceu pressionado por um pequeno período antes de efetuar reset. </p>
+
+</div>
+</div>
+<a id="a7268e35106e28591830c4c3d481abe44" name="a7268e35106e28591830c4c3d481abe44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7268e35106e28591830c4c3d481abe44">&#9670;&#160;</a></span>laser_off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void laser_off </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desliga o laser (desativa saída PC3). </p>
+<p>Desliga o laser (desativa PC3). </p>
+
+</div>
+</div>
+<a id="a92b50129527e9885167ea116439ac32f" name="a92b50129527e9885167ea116439ac32f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b50129527e9885167ea116439ac32f">&#9670;&#160;</a></span>laser_on()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void laser_on </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Liga o laser (ativa saída PC3). </p>
+<p>Liga o laser (ativa PC3). </p>
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função principal - inicializa periféricos e executa loop principal. </p>
+<p>Loop:</p><ul>
+<li>checa ADC e detecta borda claro-&gt;escuro para reduzir vidas</li>
+<li>aplica STUN (parar e ignorar comandos) quando tomar dano</li>
+<li>aceita comandos UART apenas em STATE_NORMAL</li>
+<li>imprime ADC via UART periodicamente para debug </li>
+</ul>
+
+</div>
+</div>
+<a id="a9d4cc27772c2dbe45187e0e7ab284784" name="a9d4cc27772c2dbe45187e0e7ab284784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4cc27772c2dbe45187e0e7ab284784">&#9670;&#160;</a></span>motor_control()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motor_control </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interpreta comando recebido via UART e controla motores/laser. </p>
+<p>Interpreta comandos recebidos via UART e controla motores/laser.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>caractere do comando.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Comandos de exemplo:</p><ul>
+<li>'F' : frente</li>
+<li>'B' : ré</li>
+<li>'L' : esquerda</li>
+<li>'R' : direita</li>
+<li>'S' : stop</li>
+<li>'Q' : laser on</li>
+<li>'W' : laser off </li>
+</ul>
+
+</div>
+</div>
+<a id="a1e8fdae3fd7118582ffa427dad05b6e1" name="a1e8fdae3fd7118582ffa427dad05b6e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8fdae3fd7118582ffa427dad05b6e1">&#9670;&#160;</a></span>pwm_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pwm_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa Timer1 para PWM (Fast PWM 8-bit) e zera OCR1A/B. </p>
+<p>Inicializa Timer1 em Fast PWM 8-bit para controlar motores. </p>
+
+</div>
+</div>
+<a id="a679f868dd5dc4a41b1fdd8e61a6e8643" name="a679f868dd5dc4a41b1fdd8e61a6e8643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679f868dd5dc4a41b1fdd8e61a6e8643">&#9670;&#160;</a></span>reset_lives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_lives </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reseta vidas para 3, apaga motores/laser e re-acende LEDs. </p>
+<p>Reseta o sistema para estado inicial (3 vidas, motores off, laser off).</p>
+<p>Esta função pode ser chamada tanto pelo INT0 (botão) quanto via UART (comando 'R'). </p>
+
+</div>
+</div>
+<a id="a129103c8b09172a557da4273fff658db" name="a129103c8b09172a557da4273fff658db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129103c8b09172a557da4273fff658db">&#9670;&#160;</a></span>set_motorA_dir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_motorA_dir </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dir</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define direção do motor A (1 = forward, 2 = reverse, 0 = stop). </p>
+<p>Define a direção do motor A.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>direção desejada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a235c7b31461fbf659e268b5b0a059a05" name="a235c7b31461fbf659e268b5b0a059a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a235c7b31461fbf659e268b5b0a059a05">&#9670;&#160;</a></span>set_motorA_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_motorA_speed </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>duty</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define duty cycle para motor A (0..255). </p>
+<p>Define duty do motor A (OCR1A).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duty</td><td>valor de duty (8-bit). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2aa33eb4be98ec2712c1b4087e2d582" name="ab2aa33eb4be98ec2712c1b4087e2d582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2aa33eb4be98ec2712c1b4087e2d582">&#9670;&#160;</a></span>set_motorB_dir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_motorB_dir </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dir</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define direção do motor B (1 = forward, 2 = reverse, 0 = stop). </p>
+<p>Define a direção do motor B.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir</td><td>direção desejada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af0b1c8755d2d4c6f54d9e4f49b524d09" name="af0b1c8755d2d4c6f54d9e4f49b524d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b1c8755d2d4c6f54d9e4f49b524d09">&#9670;&#160;</a></span>set_motorB_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_motorB_speed </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>duty</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define duty cycle para motor B (0..255). </p>
+<p>Define duty do motor B (OCR1B).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duty</td><td>valor de duty (8-bit). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae338d7ef8165e65a0fc62d850b9a5300" name="ae338d7ef8165e65a0fc62d850b9a5300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae338d7ef8165e65a0fc62d850b9a5300">&#9670;&#160;</a></span>update_leds_from_lives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_leds_from_lives </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualiza LEDs de vidas com base no valor lido. </p>
+<p>Atualiza LEDs que indicam número de vidas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>número de vidas (0..3). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad18cf2b77c19f48feadca5a3f42ff628" name="ad18cf2b77c19f48feadca5a3f42ff628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad18cf2b77c19f48feadca5a3f42ff628">&#9670;&#160;</a></span>usart_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int usart_available </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se há dado disponível na UART (não bloqueante). </p>
+<p>Verifica se há dado recebido (não-bloqueante).</p>
+<dl class="section return"><dt>Retorna</dt><dd>1 se há dado, 0 caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="ab567886523c8a226f508cfeb9073c400" name="ab567886523c8a226f508cfeb9073c400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab567886523c8a226f508cfeb9073c400">&#9670;&#160;</a></span>usart_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart_init </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>ubrr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa USART0 com UBRR fornecido. </p>
+<p>Inicializa a UART0 (Serial) com UBRR configurado.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ubrr</td><td>valor pre-calculado para UBRR.</td></tr>
+    <tr><td class="paramname">ubrr</td><td>valor para UBRR </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a985f020bc17a53212264b510bcf4d2c3" name="a985f020bc17a53212264b510bcf4d2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985f020bc17a53212264b510bcf4d2c3">&#9670;&#160;</a></span>usart_print_uint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart_print_uint </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime um inteiro sem sinal (até 5 dígitos) seguido de CRLF. </p>
+<p>Imprime um inteiro (0..1023) via UART com CRLF.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>valor a imprimir. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa4c8382e6dbce280795bae957eb6afef" name="aa4c8382e6dbce280795bae957eb6afef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c8382e6dbce280795bae957eb6afef">&#9670;&#160;</a></span>usart_receive_nonblocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char usart_receive_nonblocking </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recebe 1 byte da UART de forma não-bloqueante. </p>
+<p>Recebe um byte não-bloqueante da UART.</p>
+<dl class="section return"><dt>Retorna</dt><dd>byte recebido ou 0 se nada disponível.</dd>
+<dd>
+byte recebido; 0 se nada disponível. </dd></dl>
+
+</div>
+</div>
+<a id="a4f88eeb1021cb3b2a1b5e53ebbf51997" name="a4f88eeb1021cb3b2a1b5e53ebbf51997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f88eeb1021cb3b2a1b5e53ebbf51997">&#9670;&#160;</a></span>usart_transmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart_transmit </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia 1 caractere pela UART (bloqueante até buffer livre). </p>
+<p>Transmite um caractere pela UART (bloqueante até espaço em buffer).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>caractere a transmitir.</td></tr>
+    <tr><td class="paramname">c</td><td>caractere a ser enviado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variáveis</h2>
+<a id="af766dc321c1bd2f31037d384abca2288" name="af766dc321c1bd2f31037d384abca2288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af766dc321c1bd2f31037d384abca2288">&#9670;&#160;</a></span>adc_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t adc_value = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>última leitura do ADC (0..1023) — atualizada pela ISR ADC </p>
+
+</div>
+</div>
+<a id="a796e6e0f35bb50bda15b9d756fa0ac57" name="a796e6e0f35bb50bda15b9d756fa0ac57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a796e6e0f35bb50bda15b9d756fa0ac57">&#9670;&#160;</a></span>game_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="#a4edce1ca040716922b6e4a79be4e414d">game_state_t</a> game_state = <a class="el" href="#a4edce1ca040716922b6e4a79be4e414dae583c55c9f9a3aa9888e4ed771d6a9b6">STATE_NORMAL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>estado atual do jogo </p>
+
+</div>
+</div>
+<a id="aba05b1dc79faad6e88f29013b226976b" name="aba05b1dc79faad6e88f29013b226976b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba05b1dc79faad6e88f29013b226976b">&#9670;&#160;</a></span>ldr_dark</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t ldr_dark = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>flag de histerese do LDR: 0 = claro, 1 = escuro (para detectar bordas) </p>
+
+</div>
+</div>
+<a id="a5d6cd249665bf681fb1e7bc624f13ea5" name="a5d6cd249665bf681fb1e7bc624f13ea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d6cd249665bf681fb1e7bc624f13ea5">&#9670;&#160;</a></span>lives</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t lives = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>número de vidas atuais (0..3) </p>
+
+</div>
+</div>
+<a id="ac86f959cbda950252c8e59d7fac65f1f" name="ac86f959cbda950252c8e59d7fac65f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86f959cbda950252c8e59d7fac65f1f">&#9670;&#160;</a></span>stun_end_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t stun_end_time = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>instante (tick_ms) em que o stun termina </p>
+
+</div>
+</div>
+<a id="a664caad48154de21ade1e675530cf681" name="a664caad48154de21ade1e675530cf681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664caad48154de21ade1e675530cf681">&#9670;&#160;</a></span>tick_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t tick_ms = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>contador virtual de ms mantido pelo laço principal </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
