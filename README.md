@@ -103,20 +103,36 @@ Consiste em um sistema embarcado com:
                  LEDs vidas
        PC0, PC1, PC2 → LEDs (3 vidas)
 
-📁 ProjetoBumbleBee/
+📂 BumbleBeeBot/
 │
-├── src/
-│   ├── main.c              → Código completo do ATmega328P
-│   └── esp32_control.ino   → Código do ESP32 com Dabble
+├── README.md
+├── LICENSE
+│   
+│   │
+│   ├── src/
+|   |   ├── doc/           ← (gerado automaticamente, não versionar)
+│   │   ├── main/
+|   |        └── main.c   ← Código do ATmega328P
+│   └── README.md
 │
-├── docs/
-│   ├── Doxyfile            → Configuração do Doxygen
-│   ├── html/               → Site gerado pelo Doxygen
-│   └── diagrams/           → Diagramas e esquemas
+├── esp32_controller/
+│   ├── esp32_dabble_controller.ino   ← Código do ESP32 + Dabble
+│   └── README.md
 │
-├── kicad/
-│   ├── POM.kicad_pro
-│   ├── POE.kicad_pro
-│   └── POP.kicad_pro
+├── hardware/
+│   ├── schematic/         ← PNG do esquemático
+│   ├── pcb/               ← Arquivos do KiCad
+│       ├── PP.kicad_pro
+│       ├── PP.kicad_pcb
+│       ├── PP.sch
+│       ├── exports/       ← Gerbers / Furos
+│       └── README.md
+│  
 │
-└── README.md   ← (este arquivo)
+├── simulation/
+│   ├── main/
+│   └── nporje.simu1
+│
+├── Doxyfile/
+│   └── Doxyfile
+└── 
